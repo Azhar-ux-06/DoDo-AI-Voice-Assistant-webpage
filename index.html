@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -18,11 +19,8 @@
     body{
       margin:0; font-family:var(--ff); background: linear-gradient(180deg,#071026 0%, #001021 60%); color:#e6eef8; -webkit-font-smoothing:antialiased;
       padding:32px; display:flex; align-items:center; justify-content:center;
-      /* mobile safe space will be added in media query */
     }
     .wrap{width:100%; max-width:var(--max-width);}
-
-    /* Header / Hero */
     header{display:flex; gap:24px; align-items:center; margin-bottom:28px; flex-wrap:wrap}
     .logo{
       width:76px; height:76px; border-radius:18px; background:linear-gradient(135deg,var(--accent),var(--accent-2)); display:flex; align-items:center; justify-content:center; box-shadow: 0 8px 30px rgba(15,23,36,0.6);
@@ -30,8 +28,6 @@
     }
     .logo:hover{transform:rotate(0deg) scale(1.04)}
     .brand h1{margin:0;font-size:20px;letter-spacing:0.2px}
-
-    /* Animated heading */
     .brand h1 {
       background: linear-gradient(90deg, var(--accent-2), var(--accent), var(--accent-2));
       -webkit-background-clip: text;
@@ -41,95 +37,56 @@
       line-height:1.05;
       word-break:break-word;
     }
-    @keyframes shine {
-      to { background-position: 200% center; }
-    }
-
+    @keyframes shine { to { background-position: 200% center; } }
     .brand p{margin:2px 0 0;color:var(--muted);font-size:13px}
-
     .grid{display:grid; grid-template-columns: 1fr 420px; gap:24px}
     @media (max-width:920px){ .grid{grid-template-columns:1fr} .card.side{order:-1} }
-
-  
     .card{background:linear-gradient(180deg,var(--card), rgba(10,16,28,0.6)); border-radius:var(--radius); padding:20px; box-shadow: 0 6px 30px rgba(2,6,23,0.6); border:1px solid rgba(255,255,255,0.03)}
     .card h2{margin:0 0 8px}
     .muted{color:var(--muted); font-size:14px}
-
     .features{display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-top:14px}
     @media (max-width:600px){.features{grid-template-columns:1fr}}
     .feature{background:var(--glass); padding:12px; border-radius:12px; display:flex; gap:12px; align-items:flex-start; transform:translateY(14px); opacity:0; animation:fadeInUp .6s forwards;}
     .feature:nth-child(1){animation-delay:.05s} .feature:nth-child(2){animation-delay:.12s} .feature:nth-child(3){animation-delay:.19s} .feature:nth-child(4){animation-delay:.26s}
     .feature .ico{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)); display:grid; place-items:center; font-weight:700}
     @keyframes fadeInUp{to{transform:none; opacity:1}}
-
-    
     .side .status{display:flex; gap:10px; align-items:center; margin-bottom:12px}
     .dot{width:12px;height:12px;border-radius:50%;background:linear-gradient(180deg,var(--accent),var(--accent-2)); box-shadow:0 6px 16px rgba(96,165,250,0.08)}
-
     .btn{display:inline-block;padding:10px 18px;border-radius:12px;background:linear-gradient(90deg,var(--accent-2),var(--accent));cursor:pointer;border:none;color:#04263a;font-weight:600;transition:transform .2s ease, box-shadow .2s ease}
     .btn:hover{transform:scale(1.05); box-shadow:0 6px 20px rgba(96,165,250,0.25)}
-
-    
-    .pulse{
-      animation:pulseAnim 2s infinite;
-    }
+    .pulse{animation:pulseAnim 2s infinite;}
     @keyframes pulseAnim {
       0% { box-shadow:0 0 0 0 rgba(96,165,250,0.4); }
       70% { box-shadow:0 0 0 18px rgba(96,165,250,0); }
       100% { box-shadow:0 0 0 0 rgba(96,165,250,0); }
     }
-
-   
     .steps{margin-top:16px}
     .step{display:flex; gap:12px; padding:10px; align-items:flex-start}
     .pill{min-width:36px;height:36px;border-radius:10px;background:var(--glass-2);display:grid;place-items:center;font-weight:700}
-
-    /* Footer */
     footer{margin-top:18px;color:var(--muted); font-size:13px;text-align:center}
-
-   
     .demo-frame{border-radius:12px; overflow:hidden; height:220px; display:grid; grid-template-rows:1fr auto; position:relative;}
     .screen{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding:14px; display:flex; align-items:center; justify-content:center}
     .screen video{max-width:100%; max-height:100%; border-radius:8px; display:none}
     .screen p{color:var(--muted)}
     .controls{display:flex; gap:8px; align-items:center; padding:10px; background:rgba(0,0,0,0.03); justify-content:center}
-
-    /* MOBILE: make play button fixed and always reachable */
     @media (max-width:600px){
-      body{
-        padding:32px 16px 110px 16px; /* bottom padding so fixed button doesn't cover content */
-      }
-
+      body{padding:32px 16px 110px 16px;}
       header{justify-content:center; text-align:center}
       .logo{width:64px;height:64px}
-      .brand h1{
-        font-size:20px;
-        text-align:center;
-        display:block;
-        width:100%;
-      }
-      .brand p{ text-align:center }
-
-      /* Keep demo visible but make controls fixed to viewport bottom */
-      .demo-frame{height:auto;} /* allow demo frame to grow naturally on small screens */
+      .brand h1{font-size:20px;text-align:center;display:block;width:100%;}
+      .brand p{text-align:center}
+      .demo-frame{height:auto;}
       .controls{
         position:fixed;
-        left:12px;
-        right:12px;
-        bottom:12px;
-        z-index:999;
-        padding:12px;
-        border-radius:12px;
+        left:12px; right:12px; bottom:12px;
+        z-index:999; padding:12px; border-radius:12px;
         justify-content:center;
         background: linear-gradient(180deg, rgba(11,18,32,0.95), rgba(8,12,22,0.95));
         box-shadow: 0 10px 30px rgba(2,6,23,0.6);
       }
       .controls .btn{ width:100%; text-align:center; padding:12px 18px; font-size:15px; }
-      /* ensure the demo content is not covered visually by the fixed control */
       .card.side{margin-bottom:78px}
     }
-
-    
     .bg-circles{position:fixed; inset:0; pointer-events:none; z-index:-1}
     .bg-circles span{position:absolute; border-radius:50%; filter:blur(36px); opacity:.08}
     .c1{width:420px;height:420px; background:#60a5fa; left:-120px; top:-160px}
@@ -188,7 +145,8 @@
         <div class="demo-frame">
           <div class="screen" id="screen">
             <p class="muted">Click play demo to watch.</p>
-            <video id="videoPreview" controls></video>
+            <!-- ✅ Fix: allow mobile playback -->
+            <video id="videoPreview" playsinline muted preload="metadata" controls></video>
           </div>
           <div class="controls">
             <button id="playBtn" class="btn pulse">Play Demo</button>
@@ -216,16 +174,16 @@
     const playBtn = document.getElementById('playBtn');
     const screenText = document.querySelector('#screen p');
 
-    // Set your video URL here
     const videoURL = "video.mp4";
-
     preview.src = videoURL;
 
     playBtn.addEventListener('click', ()=>{
       screenText.style.display = 'none';
       preview.style.display = 'block';
-      if(preview.paused){ 
-        preview.play(); 
+
+      // ✅ Mobile-safe toggle fix
+      if (preview.paused) { 
+        preview.play().catch(err => console.log("Playback blocked:", err));
         playBtn.textContent = 'Pause Demo'; 
       } else { 
         preview.pause(); 
@@ -235,3 +193,4 @@
   </script>
 </body>
 </html>
+
